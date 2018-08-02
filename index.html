@@ -1,0 +1,1045 @@
+<!DOCTYPE HTML>
+<!--
+	
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GQ</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>.content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.heading {
+  width: 100%;
+  margin-left: 1rem;
+  font-weight: 900;
+  font-size: 1.618rem;
+  text-transform: uppercase;
+  letter-spacing: .1ch;
+  line-height: 1;
+  padding-bottom: .5em;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.heading:after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  bottom: 0;
+}
+
+.description {
+  width: 100%;
+  margin-top: 0;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  color: inherit;
+  cursor: pointer;
+  width: calc(33% - 2rem);
+  min-width: calc(33% - 2rem);
+  height: 400px;
+  min-height: 400px;
+  perspective: 1000px;
+  margin: 1rem;
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.front,
+.back {
+  display: flex;
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+.front {
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: #fff;
+  overflow: hidden;
+  font-family: Poppins, sans-serif;
+}
+.front:before {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  opacity: .25;
+  z-index: -1;
+}
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even):hover .front {
+  transform: rotateY(-180deg);
+}
+
+.back {
+  background: #fff;
+  transform: rotateY(-180deg);
+  padding: 0 2em;
+}
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+.card:nth-child(even) .back {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even):hover .back {
+  transform: rotateY(0deg);
+}
+
+.button {
+  transform: translateZ(40px);
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-weight: bold;
+  color: #fff;
+  padding: .5em 1em;
+  border-radius: 100px;
+  font: inherit;
+  background: linear-gradient(135deg, #ccc, #1a57e6);
+  border: none;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 300ms ease;
+}
+.button:before {
+  transition: 300ms ease;
+  position: absolute;
+  display: block;
+  content: '';
+  transform: translateZ(-40px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  border-radius: 100px;
+  left: 10px;
+  top: 16px;
+  box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
+  background-color: rgba(26, 87, 230, 0.25);
+}
+.button:hover {
+  transform: translateZ(55px);
+}
+.button:hover:before {
+  transform: translateZ(-55px);
+}
+.button:active {
+  transform: translateZ(20px);
+}
+.button:active:before {
+  transform: translateZ(-20px);
+  top: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*==============================
+ComboBox 
+===============================*/
+* {
+  box-sizing: border-box;
+}
+
+.resp .container {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+@media screen and (min-width: 1325px) {
+  .resp .container {
+    max-width: 1150px;
+  }
+}
+
+.comboBox {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -12px;
+  list-style-type: none;
+  list-style: none;
+}
+@media screen and (min-width: 984px) {
+  .comboBox {
+    margin: 0;
+  }
+}
+.comboBox__interior {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.comboBox__item {
+  padding: 12px;
+  border-bottom: 1px solid #EEE;
+    list-style-type: none;
+  list-style: none;
+}
+.comboBox__activePanel {
+  width: 100%;
+  background: #FAFAFA;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(102%);
+  will-change: transform;
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  display: flex;
+  flex-flow: column;
+}
+.comboBox__activePanel__header {
+  padding: 8px 12px;
+}
+.comboBox__activePanel__content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  padding: 0 12px;
+  position: relative;
+}
+.comboBox__activePanel__message {
+  background: #FFF;
+  border: 1px solid #DDD;
+  box-shadow: 0 -2px 12px -3px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.comboBox__hideWhenActive {
+  display: initial;
+}
+.comboBox__showWhenActive {
+  display: none;
+}
+.comboBox--active .comboBox__activePanel {
+  pointer-events: auto;
+  transform: none;
+  transition: transform 300ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.comboBox--active .comboBox__item--active {
+  background: #f1f5fa;
+  position: relative;
+  box-shadow: inset 3px 0 0 0 #4c83c3;
+}
+.comboBox * ::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+.comboBox * ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+.comboBox * ::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+}
+.comboBox * ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.4);
+}
+@media screen and (min-width: 700px) {
+  .comboBox__interior {
+    position: relative;
+    overflow: hidden;
+  }
+  .comboBox__activePanel {
+    position: absolute;
+    border-left: 1px solid #DDD;
+    box-shadow: -1px 0 12px -3px rgba(0, 0, 0, 0.2);
+    width: 70%;
+  }
+  .comboBox--active {
+    height: calc(100vh - 100px);
+  }
+  .comboBox--active .comboBox__list {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: 30%;
+  }
+  .comboBox--active .comboBox__hideWhenActive {
+    display: none;
+  }
+  .comboBox--active .comboBox__showWhenActive {
+    display: initial;
+  }
+}
+
+.comboBox--open,
+.comboBox--open body {
+  overflow: hidden;
+}
+
+.comboBox--open .module_secondaryHead .module_tabs,
+.comboBox--open .module_secondaryHead .managePosting,
+.comboBox--open .module_pageControls {
+  display: none;
+}
+
+/*==============================
+Quotes 
+===============================*/
+.quote__skill {
+  color: #666;
+  display: inline-block;
+  border: 1px solid #DDD;
+  text-align: center;
+  padding: 1px 4px;
+  font-size: 13px;
+  margin: 0;
+  border-radius: 3px;
+  background: #FFF;
+}
+.quote__skill--match {
+  border-bottom: 1px solid #4c83c3;
+}
+.quote__wrapper {
+  margin-top: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+.quote__identity {
+  flex: 8 0;
+  order: 1;
+}
+.quote__date {
+  flex: 8 100%;
+  order: 4;
+  margin-top: 6px;
+  color: #999;
+}
+.quote__price {
+  flex: 8 100%;
+  order: 3;
+  margin-top: 6px;
+}
+.quote__action {
+  order: 2;
+  text-align: right;
+}
+@media screen and (min-width: 550px) {
+  .quote__identity {
+    flex: 6 0;
+  }
+  .quote__price {
+    flex: 2 0;
+    order: 2;
+    margin: 0;
+    text-align: center;
+  }
+  .quote__price__amount {
+    font-size: 16px;
+  }
+  .quote__price__type {
+    display: block;
+  }
+  .quote__action {
+    order: 3;
+  }
+  .quote__date {
+    flex: 1 100%;
+    order: 4;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 780px) {
+  .quote__action {
+    flex: 2 0;
+  }
+}
+
+.profile {
+  display: none;
+}
+
+/*==============================
+THINGS WE NEED 
+===============================*/
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  input,
+  select,
+  textarea,
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+    background: red;
+  }
+}
+.module_avatar--flex {
+  display: flex;
+}
+.module_avatar--flex .avatar {
+  flex: 48px;
+  align-self: flex-start;
+}
+.module_avatar--flex .avatarinfo {
+  margin-top: 0;
+  display: flex;
+  flex-flow: row wrap;
+  flex: calc(100% - 48px);
+}
+.module_avatar--flex.thirtytwo .avatar {
+  flex: 32px;
+}
+.module_avatar--flex.thirtytwo .avatarinfo {
+  flex: calc(100% - 32px);
+}
+
+.link_btn {
+  text-shadow: none;
+}
+
+.module_box--white {
+  background: #FFF;
+}
+
+
+
+
+</style>
+	</head>
+	<body class="landing is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt" style="color: #222 !important;">
+					<h1><a href="index.html">Inner G</a>  Restorative &amp; Holistic Care </h1>
+					<nav id="nav" style="color: #222 !important;">
+						<ul >
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Services</a>
+								<ul>
+									<li><a href="generic.html">BCST</a></li>
+									<li><a href="contact.html">Acupuncture</a></li>
+									<li><a href="elements.html">Light Touch Therapy</a></li>
+									<li>
+										<a href="#" style="background-color: #00f;color: #fff;">More...</a>
+										<ul>
+											<li><a href="#">Sports</a></li>
+											<li><a href="#">Physical Therapy</a></li>
+											<li><a href="#">Rolphing</a></li>
+											<li><a href="#">Bodyslams to Kidney</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#" class="button" style="color: #fff !important;">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner" style="background-image: url(https://dl2.pushbulletusercontent.com/4O30OgbLANoUOurXACjFX59dl7b8wPmt/full-bloom.png);">
+					<h2 style="color: #222;"><a href="index.html">Inner G</a>  Restorative &amp; Holistic Care</h2>
+					<p style="color: #333;">inside outside inside outside placeholder </p>
+					<ul class="actions special" style="color: #333;">
+						<li><a href="#" class="button primary" style="padding: 10.5px 5px 7px 5px;">Sign Up</a></li>
+						<li><a href="#" class="button"  style="padding: 10.5px 5px 7px 5px;">Learn More</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Office Hours &amp; Location
+								<br/>
+								<span style="font-size: 2.3vw; padding: 5px 7px 5px 7px;">
+								-hours may vary-
+								</span>
+							</h2>
+							<p>Monday 9-5 Tuesday 9-1pm wed 9-5 thurs 9-6 Friday 9-6 Saturday 8-6 ** Sunday 12: - 5:30
+								<br/>
+							adipiscing nunc adipiscing. Condimentum turpis massa.\
+							</p>
+						</header>
+						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+					</section>
+
+
+
+
+
+
+
+
+
+
+<div class="module_secondaryHead no-shadow" >
+	<div class="container">
+		<div class="module_headerCrumb">
+			<div class="pull-left">
+				
+				
+					</div>
+				</div>
+			</div>
+		
+	</div>
+</div>
+
+<div class="container">
+	<div class="module_pageControls">
+
+		</div>
+	</div>
+	
+	<div class="comboBox" >
+		<div class="comboBox__interior module_box box_NoPadding">
+			<header class="module_box_header_filled module_box_header_filled_table">
+					<div class="module_box_header_filled_table-left">
+						<div id="bgrect" style="width: 100%; height: auto;background-color: #0000ff;color: #fff;">
+						<center class="secondaryHeading" style='font-size: 2em;padding: 14px 10px 14px 10px;'>Meet Your Doctor</center>
+					</div><!--/bgrect-->
+				</div>
+			</header>
+			<ul class="comboBox__list" id="quotes">
+				<li class="comboBox__item" id="repeatMe">
+					<div class="quote">
+						<div class="module_avatar module_avatar--flex thirtytwo" id="abc">
+							<div class="avatar">
+								<a href="#"><img src="https://dl2.pushbulletusercontent.com/fn5gZua7qPEgVHjXJvDzadZ88BhsP8aQ/gfaceshot.png" alt="photo of Griselle Q" /></a>
+							</div>
+							<div class="avatarinfo" data-info>
+								<div class="quote__identity">
+									<p class="copy small rhythmMargin0">
+										<a href="#"><strong class="largeText" style="margin-left: 1em;">Griselle Quiñones</strong>
+										<span data-messages class="textSmall lightGrey">
+											<i data-icon="🕒" aria-hidden="true"></i> <span data-count></span>
+										</span>
+									</p>
+									<p class="copy small rhythmMarginSmall" data-subtitle style="margin-left: 1em;">
+										BCST 
+										<span class="comboBox__hideWhenActive">
+											<span class="divider" aria-hidden="true" role="presentation"> | </span> Yung Boss Bish
+											<span class="divider" aria-hidden="true" role="presentation"> | </span> 
+											
+												<i data-icon="🔥" aria-hidden="true" role="icon"></i> GQ Money Gang Gang shiyt
+											
+										</span>
+									</p>
+									<span class="comboBox__hideWhenActive">
+										<ul class="rhythmMarginSmall">
+											<li class="quote__skill quote__skill--match">Licensed Massage Therapist</li>
+										<!-- 	<li class="quote__skill">Content Editing</li>
+											<li class="quote__skill">Online Writing</li> -->
+										</ul>
+									</span>
+								</div>
+
+							<!-- 	<div class="quote__date">Sent 3/25</div> -->
+							</a> 
+								<div class="quote__price comboBox__hideWhenActive">
+										<strong class="quote__price__amount">$99 a minute bish</strong>
+										<!-- <span class="lightGrey quote__price__type">Fixed Price</span> -->
+								</div>
+
+
+							<div class="quote__action comboBox__hideWhenActive">
+
+									<div class="rhythmMargin1 clearfix">
+										<!-- <button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Favorite">
+											<i class="largerText" data-icon="&#xe033" aria-hidden="true" data-star></i><br>
+											<span class="lightGrey">Favorite</span>
+										</button>
+										<button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Favorite">
+											<i class="largerText" data-icon="&#xe01f" aria-hidden="true"></i><br>
+											<span class="lightGrey">Message</span>
+										</button> 
+										<button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Archive Quote">
+											<i class="largerText lightGrey" data-icon="&#xe614" aria-hidden="true"></i><br> 
+											<span class="lightGrey">Archive</span>
+										</button>
+									</div> -->
+
+									<button class="module_btn primary_btn full-width small_btn"><a href='#'>View Profile</a></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</li>
+			</ul>
+			<div class="comboBox__activePanel">
+				<div class="comboBox__activePanel__header clearfix">
+					<div class="pull-left">
+						<button type="button" id="closeQuote" class="module_btn secondary_btn" style="margin-left: 44vw;margin-top: 9vw; ">
+							 <span class="navigation_arrow navigation_arrow_small"></span>
+							 Close 
+						</button>
+					</div>
+					<div class="pull-right">
+						
+					</div>
+				</div>
+				<div class="comboBox__activePanel__content">
+					<div class="module_box module_box--white rhythmMargin1">
+						<div class="module_avatar module_avatar--flex rhythmMargin1">
+							<div class="avatar"><img data-activeImage/></div>
+							<div class="avatarinfo" data-info></div>
+						</div>
+						<div class="profile" id="profile">
+							<h4 class="strongHeading">
+								Always make project succeed with ground-breaking skills and knowledge.
+							</h4>
+							
+							<p class="copy">
+								IT Svit Company is a leading provider of IT solutions and services for business. 
+								Our customers rely on us to continually innovate, so we are proud of providing them with excellent products and highly qualified support. 
+							</p>
+							
+							<p class="copy">
+								Our mission is pretty simple: ensure that your IT infrastructure is 
+								both absolutely efficient and reliable, making you feel totally confident.
+							</p>
+							
+							<h4 class="strongHeading">Work Terms</h4>
+							<p class="copy">
+								Our regular business hours are from 9 AM to 6 PM (UMC +2), 
+								but we are a customer-oriented company and are willing to work according to the Customer's schedule and his time zone. 
+							</p>
+							<p class="copy">
+								We are ready to both hourly payment and payment for the project. 
+								Either we accept the money only after the client has been satisfied with the result.
+							</p>
+							
+						</div>
+						<div style="text-align:center">
+							<button id="expandProfile" class="module_btn link_btn" style="width: 100%;background-color: #07f;color: #fff;">Expand Profile</button>
+						</div>
+
+						
+					</div>
+					<div class="module_box module_box--white rhythmMargin1">
+						<h5>Quote Info</h5><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+						<br><br><br><br><br><br><br><br><br><br>
+					</div>
+				</div>
+				<div class="comboBox__activePanel__message">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- ### Scheduling fulslate? -->
+
+	<section class="newCl">
+		
+
+	</section> 
+<!--/ ### end full slate -->
+
+					<section class="box special features" style="margin-top: 40vh;">
+						<h2 style="text-align: center;margin-top: -5vh;">Services Provided &amp; Rates</h2>
+						<div class="features-row">
+
+							<section>
+								
+								<span class="icon major fa-money accent2"></span>
+								<h3>Bronze 1</h3>
+								<p style="padding: 5px 7px 5px 7px;text-align: left;	">Cotton candy topping jelly-o sweet macaroon gummies sweet roll fruitcake ice cream. Macaroon sweet roll chocolate cake I love jelly beans croissant carrot cake pie. Cotton candy tootsie roll I love carrot cake caramels oat cake. Marzipan topping tiramisu. Cake wafer tiramisu halvah gummi bears. Jelly apple pie pie chocolate bar. Tootsie roll jelly beans jelly. Croissant tiramisu gingerbread cheesecake sesame snaps. Chocolate apple pie marzipan I love croissant oat cake. Tootsie roll tiramisu candy jujubes sweet muffin. Soufflé soufflé I love gummies candy. Fruitcake powder pie sweet roll halvah pudding bear claw I love. Lollipop I love candy bear claw ice cream candy jelly beans I love. Tart fruitcake sesame snaps powder cake candy canes marzipan icing soufflé.</p>
+							</section>
+							<section>
+								<span class="icon major fa-area-chart accent3"></span>
+								<h3>Silver 2</h3>
+								<p style="padding: 5px 7px 5px 7px;text-align: left;">Marzipan chocolate cake candy canes chocolate cake. Pastry sugar plum I love bear claw halvah. Liquorice sweet roll cupcake. I love cake soufflé oat cake ice cream cake. Jujubes wafer I love oat cake. I love pastry bear claw soufflé fruitcake sweet roll dragée. Pastry soufflé gummies cake gummies lemon drops fruitcake. Gingerbread I love bear claw pastry oat cake lollipop. Lemon drops chocolate bar I love topping marzipan cupcake cupcake icing macaroon. Candy canes gingerbread chocolate cake sweet roll donut. Cake jelly croissant chupa chups cake chocolate cake. Sweet candy canes cheesecake. Toffee powder jelly wafer cake bonbon chocolate cotton candy I love.
+
+</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<span class="icon major fa-cloud accent4"></span>
+								<h3>Gold 3</h3>
+								<p style="padding: 5px 7px 5px 7px;text-align: left;">Chocolate bar I love chocolate. Sweet roll candy lollipop chocolate cheesecake marshmallow jelly jelly-o. Bear claw I love soufflé cake sweet roll marzipan croissant I love. Marzipan gummies bear claw pastry caramels oat cake icing. I love gummi bears oat cake jelly tart. Cheesecake donut chocolate bar. Fruitcake lollipop gingerbread candy. Tart gummies toffee sweet gummi bears topping lollipop cake sesame snaps. Muffin candy candy. Dragée ice cream cake I love gummi bears pudding jelly. Wafer sweet roll danish soufflé jelly gummies. Cookie bonbon tiramisu chocolate I love chupa chups macaroon I love.</p>
+							</section>
+							<section>
+								<span class="icon major fa-lock accent5"></span>
+								<h3>Platinum 4</h3>
+								<p style="padding: 5px 7px 5px 7px;text-align: left;">Icing ice cream halvah biscuit sesame snaps fruitcake toffee. Biscuit bonbon ice cream liquorice pudding. Topping chupa chups macaroon ice cream candy jelly candy canes jujubes chocolate cake. Bonbon bear claw cake I love bonbon candy canes I love sesame snaps. Caramels cheesecake liquorice danish cake. Icing carrot cake bear claw sugar plum sweet toffee sugar plum jelly-o dessert. Jelly-o jelly beans ice cream I love candy sugar plum chocolate bar gummi bears gingerbread. Jelly beans gingerbread croissant gummies oat cake gingerbread. Fruitcake carrot cake I love I love chupa chups cake. Biscuit lemon drops pastry sesame snaps lollipop gummi bears tiramisu. Halvah bonbon marshmallow gummi bears. Croissant gummi bears soufflé. Cake cookie biscuit gummies dessert ice cream tart chocolate cake. Donut topping gummies jelly beans.</p>
+							</section>
+						</div>
+					</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="content">
+  <h1 class="heading" style="padding-top: 2.3vh;">FAQ <span style='font-size: 0.67em;'> (frequently asked questions)</span></h1>
+  <p class="description">Hover over a card to flip it.</p><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x401);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x402);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x403);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x404);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x405);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(//source.unsplash.com/300x406);">
+      <p>This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p>answer : This is a fine placeholder for faq type</p>
+        <p>explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a>
+</div>
+
+
+
+
+
+					<div class="row">
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+								<h3>I love gummi bears</h3>
+								<p>Oat cake jelly tart. Fruitcake lollipop gingerbread candy. Tart gummies toffee sweet gummi bears topping. Muffin candy candy. </p>
+								<ul class="actions special">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
+						<div class="col-6 col-12-narrower">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+								<h3>Lollipop cake sesame snaps</h3>
+								<p>Cheesecake donut chocolate bar. Caramels cheesecake liquorice danish cake. Icing carrot cake bear claw sugar plum sweet toffee sugar plum jelly-o dessert. </p>
+								<ul class="actions special">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
+					</div>
+
+				</section>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<h2>Receive a Free Consultation!</h2>
+					<p style="padding: 5px 7px 5px 7px;margin-top: -1vh">Want to know if we are the right fit for you? We are happy to accommodate your schedule! We typically respond within 24hrs via email.</p>
+
+					<form>
+						<div class="row gtr-50 gtr-uniform">
+							<div class="col-8 col-12-mobilep">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="col-4 col-12-mobilep">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+					<!-- 	<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Inner G.  All rights reserved.</li><li>Design: <a href="logidesigns.com">LogiSolutions</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+<script src="https://www.guru.com/js/components.min.js"></script>
+
+			<script>var quotes = document.querySelector('#quotes');
+var quote = quotes.querySelector('li');
+var quoteLink = quotes.querySelectorAll('a');
+var comboBox = document.querySelector('.comboBox');
+var closeLink = document.querySelector('#closeQuote');
+var expandProfile = document.querySelector('#expandProfile');
+var profile = document.querySelector('#profile');
+var scrollTop;
+var html = document.documentElement;
+var names = ['Design Motion Studio', 'Scopic Software' ]
+var images=["https://s3.amazonaws.com/uifaces/faces/twitter/zeldman/128.jpg", "https://s3.amazonaws.com/uifaces/faces/twitter/iannnnn/128.jpg"]
+
+function init() {
+	addEventListeners();
+	populate();
+	
+	if (window.innerWidth >= 700) {
+			document.documentElement.classList.add('twoColSize')
+	}
+	
+}
+init();
+
+function addEventListeners() {
+	quotes.addEventListener('click', quoteClickHandler);
+	document.addEventListener('keyup', function(e) {
+  	if (e.keyCode === 27) {
+			closeClickHandler(e)
+		}
+	});
+	closeLink.addEventListener('click', closeClickHandler);
+	expandProfile.addEventListener('click', profileViewHandler);
+}
+
+function quoteClickHandler(e) {
+	scrollTop = html.scrollTop;
+	e.preventDefault();
+	var isComboBoxAlreadyOpen = false;
+	if (comboBox.classList.contains("comboBox--active")) {
+		isComboBoxAlreadyOpen = true;
+	}
+	
+	var el = e.target;
+  // walk up the tree until we find a LI item
+  while (el && el.tagName !== 'A') {
+     el = el.parentNode;
+  }
+	if (el && el.tagName === 'A') {
+		//activate comboBox
+		comboBox.classList.add("comboBox--active");		
+		
+		//let html element know its active	
+		html.classList.add("comboBox--open");
+				
+		// reset the active panel to top
+		comboBox.querySelector('.comboBox__activePanel__content').scrollTop = 0;
+ 		
+		// jank remove all left side active classes
+		quotes.querySelectorAll("li").forEach(function(record) {
+ 			record.classList.remove("comboBox__item--active");
+ 		})
+		while (el && el.tagName !== 'LI') {
+     el = el.parentNode;
+  	}
+		el.classList.add("comboBox__item--active");
+		// end jank
+
+		//try to put the element they clicked in view
+		if (isComboBoxAlreadyOpen === false) {
+			quotes.scrollTop = el.offsetTop - (el.offsetHeight / 2) + 10;
+		}
+		
+		// setup the quote
+		populateActiveQuote(el);
+	}
+}
+
+function closeClickHandler(e) {
+	e.preventDefault();
+	html.classList.remove("comboBox--open");
+	comboBox.classList.remove("comboBox--active");
+	window.scrollTo(0, scrollTop)
+}
+
+function populate() {
+	var quotes =  $("#quotes");
+	for (var i = 0; i < 0; i++) {
+		quotes.append("<li class='comboBox__item'>"+quote.innerHTML+"</li>")
+		quotes.find("li .quote__identity a strong").last().html(names[i]);
+		quotes.find("li .avatar img").last().attr('src', images[i]);
+		
+		
+		
+		if (Math.floor((Math.random()*10) + 1) % 4 === 0) {	
+			quotes.find("[data-messages]").last()
+				.addClass('alert-color')
+				.removeClass('lightGrey')
+			
+			quotes.find("[data-star]").last()
+				.css('color', '#ffd76e')
+			
+		}
+		quotes.find("[data-count]").last()
+			.html(Math.floor((Math.random()*10)))
+	} 
+}
+
+function populateActiveQuote(clickedNode) {
+	var clickedSrc = clickedNode.querySelector(".avatar img").src;
+	var clickedInfo = clickedNode.querySelector("[data-info]");
+	var activePanel = comboBox.querySelector('.comboBox__activePanel__content');
+	
+	activePanel.querySelector('[data-activeImage]').src = clickedSrc;
+	activePanel.querySelector('[data-info]').innerHTML = clickedInfo.innerHTML;
+	
+	activePanel.querySelectorAll('.comboBox__hideWhenActive').forEach(function(node) {
+		node.classList.remove('comboBox__hideWhenActive');
+	});
+	
+	activePanel.querySelector('[data-messages]').remove()
+	activePanel.querySelector('.quote__date').remove()
+	activePanel.querySelector('.quote__action').remove()
+	$(profile).hide();
+}
+
+function profileViewHandler() {
+	$(profile).slideToggle(200, 'swing', function(){
+		if ($(profile).is(":visible")) {
+			expandProfile.innerText  = 'Collapse Profile'
+		}
+		else {
+			expandProfile.innerText = 'Expand Profile'
+		}	
+	});
+}</script>
+
+	</body>
+</html>
