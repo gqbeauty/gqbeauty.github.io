@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap and Font Awesome css -->
+     
+
+<title>qnaire home base</title>
+
+<style>
+@font-face {
+    font-family: "logieFont";
+    src: url(Gilroy-ExtraBold.otf);
+}
+
+@font-face {
+    font-family: 'logieDistrict';
+    src: url(DistTh__.otf);
+  }
+
+
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+
+
+.title{
+/*   font-family:"Rock Salt", cursive; */
+  font-size: 1.5em;
+  text-align: center;
+}
+
+body,html{
+  font-family:"abel", sans-serif;
+  text-align:center;
+  min-width:260px;
+  color:white;
+  background-color:transparent;
+}
+
+body{
+  font-size:1.3em;
+  background: linear-gradient(rgba(0, 0, 0,0.68), rgba(0, 0, 0, 0.68)), url(https://image.freepik.com/free-vector/background-scene-with-moon-in-dark-night_1308-5277.jpg)
+    center no-repeat fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+
+#spacer {height:4.4vh;width: 50px;}
+
+.text-box{
+  text-align: center;
+/*   background-image: url(https://dl2.pushbulletusercontent.com/D6TWuoqQIkt0JNW5ylgKbYHM4xi0nSnA/ep_naturalblack.png); https://image.freepik.com/free-vector/business-infographic-timeline-template_42331-544.jpg*/
+  background-color: rgba(255,150,70,0.32);
+  border-radius: 30px;
+  margin: 2em auto;
+  padding: inherit;
+  width: 85%;
+  height:28vh;
+}
+
+h1 {
+  font-style:bold;
+  text-align:center;
+  margin:auto;
+  margin: 0;
+  color: #000;
+  text-align: center;
+  letter-spacing: 5px;
+  word-spacing: 0.2em;
+  line-height: 4.4vh;
+  font-weight: bold;
+  padding: 7px 5px 7px 5px;
+}
+
+p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+hr {
+  width: 60%;
+  margin: 8px auto;
+}
+
+.container {
+  background-color: rgba(79, 118, 223, 0.28);
+  border-radius: 20px;
+  margin: auto;
+  width: 87.23%;
+  padding: 1em;
+}
+
+#survey-form {
+  margin: 0 auto;
+  width: 88%;
+  padding: 5px 7px 5px 7px;
+  line-height: 4vh
+  
+}
+
+.labels {
+  display: inline-block;
+  text-align: left;
+  width: 40%;
+  vertical-align: top;
+  margin-top: 18px;
+}
+
+.input-tab {
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  margin-left: 10px;
+}
+
+.input-field {
+  display: inline-block;
+  width: 110%;
+  padding: 5px;
+  margin: 18px  0 10px;
+  border: 1px solid yellow;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1.32em;
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+  font-weight: 300;
+}
+
+input {
+  margin: 7px;
+}
+
+#dropdown {
+  width: 110%;
+  padding: 5px;
+  margin: 20px 0 10px 10px;  
+  border: 1px solid yellow;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 15px;
+}
+.btn {
+  width: 100%;
+  text-align: center;
+  margin: 25px;
+}
+
+button {
+  background-color: rgba(255,217,15,0.28);
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: inherit;
+  padding: 10px 15px;
+  border: 1px solid;
+}
+
+button:hover {
+  background-color: rgba(79, 118, 223, 0.28);
+}
+
+footer {
+  text-align: center;
+  font-size: 17px;
+  margin: 20px;
+}
+
+footer a {
+  color: #f39c12;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+footer p {
+  margin: 1.5em;
+  font-size: 0.95em;
+}
+
+@media only screen and (max-width: 768px) {
+  body{
+    background: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68)), url(https://image.freepik.com/free-photo/keyboard-social-business-young-person_1150-1012.jpg) center no-repeat fixed;
+  background-size: cover;
+}
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  .labels {
+    width: 100%;
+    text-align: left;
+  }
+  .input-tab {
+    width: 100%;
+    float: left;
+    margin-left: -10px;
+  }
+  .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://s3.amazonaws.com/uploads.hipchat.com/697967/4899719/I6dmKeUR5YSx4Pe/dgfinalfinal6.png" alt="Logo" width='250px' style='padding:14px 5px 7px 5px;'>
+  <div class="text-box" ><h1 id="title" class="title" style='transform:translateY(18%);'><span style='color:#fff;font-size:6.8vh;'>CMI NOVACAST</span><br>
+    Website&nbsp;Design&nbsp;Client<br> Questionnaire</h1>
+    <br>
+  <hr>
+<p id="description" style='transform:translateY(20%);'>
+  Tell us about CMI NOVACAST's Goals, and its questions!
+  </p>
+  </div>
+</header>
+<div class="container">
+  <form id="survey-form" method="GET" >
+<div class="labels">
+  <label id="name label" for="name">*Full Name</label></div>
+    <div class="input-tab">
+      <input class="input-field" type="text" id="name" name="name" placeholder="enter your name" required autofocus></div>
+    <br>
+    
+    <div class="labels">
+      <label id="email-label" for="email">* email</label></div>
+    <div class="input-tab">
+      <input class="input-field" type="email" id="email" name="email" placeholder="email@email.com" required></div>
+    
+    <div class="labels">
+      <label id="number-label" for="number">* Age</label></div>
+    <div class="input-tab">
+      <input class="input-field" type="number" id="number" name="number" min="1" max="145" placeholder="your age" required></div>
+    <br><br>
+    
+       <div class="labels">
+          <label for="dropdown">How was your stay in Springfield?</label></div>
+        <div class="input-tab">
+          <select id="dropdown" name="site">
+            <option disabled value selected>Select an option</option>
+            
+            <option value="meh">BooHoo</option>
+            <option value="heh">meh</option>
+            <option value="Yikes">D'oh</option>
+            <option value="Yea">Hmm okay</option>
+            <option value="Hell Yea">WooHoo!</option>
+            <option value="other">Other</option>
+          </select>
+          </div>
+    <div id="spacer"></div>
+    <div class="labels">
+          <label>Who do you like The most of The Springfield Citizen?</label></div>
+        <div class="input-tab">
+            <input type="radio" name="radio-button" value="Homer Simpson">Homer Simpson<br>
+            <input type="radio" name="radio-button" value="Bart">Bart Simpson<br>
+            <input type="radio" name="radio-button" value="Marge Simpson">Marge Simpson<br>
+            <input type="radio" name="radio-button" value="Apu">Apu<br>
+        </div>
+    <div id="spacer"></div>
+    <div class="labels">
+      <label for="dropdown">How many beers you chugged at Moe's?</label></div>
+    <div class="input-tab">
+      <select id="dropdown" name="beer">
+        <option disabled value selected>Select an option</option>
+        <option value="<=15">0-15</option>
+        <option value="<=20">15-20</option>
+        <option value="<=100">20-100</option>
+        <option value="<=101">100-101</option>
+      </select>
+    </div>
+    <div id="spacer"></div>
+    <div class="labels">
+          <label>Who do you drink the beers with?<br>(Check all that apply):</label></div>
+    <div class="input-tab">
+      <input type="checkbox" name="apu" value="apu">Apu<br>
+          <input type="checkbox" name="Moe" value="Moe">Moe<br>
+          <input type="checkbox" name="Homer" value="Homer">Homer<br>
+          <input type="checkbox" name="other" value="other">Other<br>
+        </div>   
+  <div id="spacer"></div>
+  <div class="labels">
+          <label for="comments">Tell us more about your experiences in Springfield</label></div>
+        <div class="input-tab">
+          <textarea class="input-field" id="comments" name="comments" rows="10" cols="40" placeholder="Your comments here...(please write something nice. love, Homer)"></textarea></div>
+  
+  <div class="btn">
+          <button id="submit" type="submit">Submit</button>
+        </div>
+    <hr>
+ <footer>
+      <p>&copy 2018 Dataguize</a></p>
+</footer>
+  </form>
+</div>                                              
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                                       
+                                                                                              
+
+
+<!-- <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<!-- <script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js"></script>
+<script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase.min.js?r=2"></script> -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
