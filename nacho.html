@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<!--
+  
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>GQ</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></script>
+    <style>
+
+    .content {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.heading {
+  width: 100%;
+  margin-left: 1rem;
+  font-weight: 900;
+  font-size: 1.618rem;
+  text-transform: uppercase;
+  letter-spacing: .1ch;
+  line-height: 1;
+  padding-bottom: .5em;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.heading:after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  bottom: 0;
+}
+
+.description {
+  width: 100%;
+  margin-top: 0;
+  margin-left: 1rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  color: inherit;
+  cursor: pointer;
+  width: calc(33% - 2rem);
+  min-width: calc(33% - 2rem);
+  height: 400px;
+  min-height: 400px;
+  perspective: 1000px;
+  margin: 1rem;
+  position: relative;
+}
+@media screen and (max-width: 800px) {
+  .card {
+    width: calc(50% - 2rem);
+  }
+}
+@media screen and (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+}
+
+.front,
+.back {
+  display: flex;
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+.front {
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: #fff;
+  overflow: hidden;
+  font-family: Poppins, sans-serif;
+}
+.front:before {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #1a9be6, #1a57e6);
+  opacity: .25;
+  z-index: -1;
+}
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even):hover .front {
+  transform: rotateY(-180deg);
+}
+
+.back {
+  background: #fff;
+  transform: rotateY(-180deg);
+  padding: 0 2em;
+}
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+.card:nth-child(even) .back {
+  transform: rotateY(180deg);
+}
+.card:nth-child(even):hover .back {
+  transform: rotateY(0deg);
+}
+
+.button {
+  transform: translateZ(40px);
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-weight: bold;
+  color: #fff;
+  padding: .5em 1em;
+  border-radius: 100px;
+  font: inherit;
+  background: linear-gradient(135deg, #ccc, #1a57e6);
+  border: none;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 300ms ease;
+}
+.button:before {
+  transition: 300ms ease;
+  position: absolute;
+  display: block;
+  content: '';
+  transform: translateZ(-40px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  border-radius: 100px;
+  left: 10px;
+  top: 16px;
+  box-shadow: 0 0 10px 10px rgba(26, 87, 230, 0.25);
+  background-color: rgba(26, 87, 230, 0.25);
+}
+.button:hover {
+  transform: translateZ(55px);
+}
+.button:hover:before {
+  transform: translateZ(-55px);
+}
+.button:active {
+  transform: translateZ(20px);
+}
+.button:active:before {
+  transform: translateZ(-20px);
+  top: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*==============================
+ComboBox 
+===============================*/
+* {
+  box-sizing: border-box;
+}
+
+.resp .container {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+@media screen and (min-width: 1325px) {
+  .resp .container {
+    max-width: 1150px;
+  }
+}
+
+.comboBox {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -12px;
+  list-style-type: none;
+  list-style: none;
+}
+@media screen and (min-width: 984px) {
+  .comboBox {
+    margin: 0;
+  }
+}
+.comboBox__interior {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.comboBox__item {
+  padding: 12px;
+  border-bottom: 1px solid #EEE;
+    list-style-type: none;
+  list-style: none;
+}
+.comboBox__activePanel {
+  width: 100%;
+  background: #FAFAFA;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(102%);
+  will-change: transform;
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+  display: flex;
+  flex-flow: column;
+}
+.comboBox__activePanel__header {
+  padding: 8px 12px;
+}
+.comboBox__activePanel__content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  padding: 0 12px;
+  position: relative;
+}
+.comboBox__activePanel__message {
+  background: #FFF;
+  border: 1px solid #DDD;
+  box-shadow: 0 -2px 12px -3px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.comboBox__hideWhenActive {
+  display: initial;
+}
+.comboBox__showWhenActive {
+  display: none;
+}
+.comboBox--active .comboBox__activePanel {
+  pointer-events: auto;
+  transform: none;
+  transition: transform 300ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.comboBox--active .comboBox__item--active {
+  background: #f1f5fa;
+  position: relative;
+  box-shadow: inset 3px 0 0 0 #4c83c3;
+}
+.comboBox * ::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+.comboBox * ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+.comboBox * ::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+}
+.comboBox * ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.4);
+}
+@media screen and (min-width: 700px) {
+  .comboBox__interior {
+    position: relative;
+    overflow: hidden;
+  }
+  .comboBox__activePanel {
+    position: absolute;
+    border-left: 1px solid #DDD;
+    box-shadow: -1px 0 12px -3px rgba(0, 0, 0, 0.2);
+    width: 70%;
+  }
+  .comboBox--active {
+    height: calc(100vh - 100px);
+  }
+  .comboBox--active .comboBox__list {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: 30%;
+  }
+  .comboBox--active .comboBox__hideWhenActive {
+    display: none;
+  }
+  .comboBox--active .comboBox__showWhenActive {
+    display: initial;
+  }
+}
+
+.comboBox--open,
+.comboBox--open body {
+  overflow: hidden;
+}
+
+.comboBox--open .module_secondaryHead .module_tabs,
+.comboBox--open .module_secondaryHead .managePosting,
+.comboBox--open .module_pageControls {
+  display: none;
+}
+
+/*==============================
+Quotes 
+===============================*/
+.quote__skill {
+  color: #666;
+  display: inline-block;
+  border: 1px solid #DDD;
+  text-align: center;
+  padding: 1px 4px;
+  font-size: 13px;
+  margin: 0;
+  border-radius: 3px;
+  background: #FFF;
+}
+.quote__skill--match {
+  border-bottom: 1px solid #4c83c3;
+}
+.quote__wrapper {
+  margin-top: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+.quote__identity {
+  flex: 8 0;
+  order: 1;
+}
+.quote__date {
+  flex: 8 100%;
+  order: 4;
+  margin-top: 6px;
+  color: #999;
+}
+.quote__price {
+  flex: 8 100%;
+  order: 3;
+  margin-top: 6px;
+}
+.quote__action {
+  order: 2;
+  text-align: right;
+}
+@media screen and (min-width: 550px) {
+  .quote__identity {
+    flex: 6 0;
+  }
+  .quote__price {
+    flex: 2 0;
+    order: 2;
+    margin: 0;
+    text-align: center;
+  }
+  .quote__price__amount {
+    font-size: 16px;
+  }
+  .quote__price__type {
+    display: block;
+  }
+  .quote__action {
+    order: 3;
+  }
+  .quote__date {
+    flex: 1 100%;
+    order: 4;
+    margin-top: 0;
+  }
+}
+@media screen and (min-width: 780px) {
+  .quote__action {
+    flex: 2 0;
+  }
+}
+
+.profile {
+  display: none;
+}
+
+/*==============================
+THINGS WE NEED 
+===============================*/
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  input,
+  select,
+  textarea,
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+    background: red;
+  }
+}
+.module_avatar--flex {
+  display: flex;
+}
+.module_avatar--flex .avatar {
+  flex: 48px;
+  align-self: flex-start;
+}
+.module_avatar--flex .avatarinfo {
+  margin-top: 0;
+  display: flex;
+  flex-flow: row wrap;
+  flex: calc(100% - 48px);
+}
+.module_avatar--flex.thirtytwo .avatar {
+  flex: 32px;
+}
+.module_avatar--flex.thirtytwo .avatarinfo {
+  flex: calc(100% - 32px);
+}
+
+.link_btn {
+  text-shadow: none;
+}
+
+.module_box--white {
+  background: #FFF;
+}
+
+
+.dayzbold {
+
+  font-size:3vh;
+  list-style: none;
+                
+}
+
+.Gsched {
+  text-decoration: underline;
+  background-color: #fff; 
+background-image: 
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+}
+
+
+#schedlist>span {
+
+  margin-left: 5vw;
+}
+
+
+</style>
+  </head>
+  <body class="landing is-preload">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+        <header id="header" class="alt" style="color: #222 !important;">
+          <h1><a href="index.html">Inner G</a> <!--  Restorative &amp; Holistic Care --> </h1>
+          <nav id="nav" style="color: #222 !important;">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li>
+                <a href="#" class="icon fa-angle-down">Services</a>
+                <ul>
+                  <li><a href="generic.html">BCST</a></li>
+                  <li><a href="contact.html">Acupuncture</a></li>
+                  <li><a href="elements.html">Light Touch Therapy</a></li>
+                  <li>
+                    <a href="#" style="background-color: #00f;color: #fff;">More...</a>
+                    <ul>
+                      <li><a href="#">Sports</a></li>
+                      <li><a href="#">Physical Therapy</a></li>
+                      <li><a href="#">Rolphing</a></li>
+                      <li><a href="#">Bodyslams to Kidney</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#" class="button" style="color: #fff !important;">Sign Up</a></li>
+            </ul>
+          </nav>
+        </header>
+
+      <!-- Banner -->
+        <section id="banner" style="background-image: url(https://dl2.pushbulletusercontent.com/4O30OgbLANoUOurXACjFX59dl7b8wPmt/full-bloom.png);">
+          <h2 style="color: #222;"><a href="index.html">Inner G</a>  Restorative &amp; Holistic Care</h2>
+          <p style="color: #333;">inside outside inside outside placeholder </p>
+          <ul class="actions special" style="color: #333;">
+            <li><a href="#" class="button primary" style="padding: 10.5px 5px 7px 5px;">Sign Up</a></li>
+            <li><a href="#" class="button" style="padding: 10.5px 5px 7px 5px;">Learn More</a></li>
+          </ul>
+        </section>
+<!-- <section id="banner" class="container" style="background:url(https://cdn.dribbble.com/users/677605/screenshots/3726456/web_site_redesigne_image_webpage.jpg);height: 100vh;margin-top: -10%;display: flex;max-width: 100%;opacity: 0.17;background-position: center;background-size: cover;">
+</section> -->
+      <!-- Main -->
+        <section id="main" class="container">
+
+          <section class="box special">
+            <header class="major">
+              <h2>Office Hours &amp; Location
+                <br />
+                <span style="font-size: 2.3vw; padding: 5px 7px 5px 7px;">
+                -hours may vary-
+                </span>
+              </h2>
+              <p>
+                <ul id='schedlist' style="list-style: none;">
+                  <li class="Gsched"><span class="dayzbold">Monday</span> 9-5</li>
+                  <li class="Gsched"><span class="dayzbold">Tuesday</span> 9-1pm</li>
+                  <li class="Gsched"><span class="dayzbold">Wednesday</span> 9-5</li>
+                  <li class="Gsched"><span class="dayzbold">Thursday</span> 9-6</li>
+                  <li class="Gsched"><span class="dayzbold">Friday</span> 9-6</li>
+                  <li class="Gsched"><span class="dayzbold">Saturday</span> 8-6</li>
+                  <li class="Gsched"><span class="dayzbold">Sunday</span> 12: - 5:30</li>
+                </ul>
+
+              
+
+
+                Monday 9-5 Tuesday 9-1pm wed 9-5 thurs 9-6 Friday 9-6 Saturday 8-6 ** Sunday 12: - 5:30
+                <br />
+            
+
+              </p>
+            </header>
+            <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+          </section>
+
+
+
+
+
+
+
+
+
+
+<div class="module_secondaryHead no-shadow">
+  <div class="container">
+    <div class="module_headerCrumb">
+      <div class="pull-left">
+        
+        
+          </div>
+        </div>
+      </div>
+    
+  </div>
+</section></div>
+
+<div class="container">
+  <div class="module_pageControls">
+
+    </div>
+  </div>
+  
+  <div class="comboBox">
+    <div class="comboBox__interior module_box box_NoPadding">
+      <header class="module_box_header_filled module_box_header_filled_table">
+          <div class="module_box_header_filled_table-left">
+            <div id="bgrect" style="width: 100%; height: auto;background-color: #0000ff;color: #fff;">
+            <center class="secondaryHeading" style='font-size: 2em;padding: 14px 10px 14px 10px;'>Meet Your Doctor</center>
+          </div><!--/bgrect-->
+        </div>
+      </header>
+      <ul class="comboBox__list" id="quotes">
+        <li class="comboBox__item" id="repeatMe">
+          <div class="quote">
+            <div class="module_avatar module_avatar--flex thirtytwo" id="abc">
+              <div id="av" class="avatar">
+                <a href="#"><img src="https://dl2.pushbulletusercontent.com/fn5gZua7qPEgVHjXJvDzadZ88BhsP8aQ/gfaceshot.png" alt="photo of Griselle Q" /></a>
+              </div>
+              <div class="avatarinfo" data-info>
+                <div class="quote__identity">
+                  <p class="copy small rhythmMargin0">
+                    <a href="index.html"><strong class="largeText" style="margin-left: 1em;">View Griselle's Profile</strong>
+                    <span data-messages class="textSmall lightGrey">
+                      <i data-icon="🕒" aria-hidden="true"></i> <span data-count></span>
+                    </span>
+                  </a></p>
+                  <p class="copy small rhythmMarginSmall" data-subtitle style="margin-left: 0;padding-left: 1.32vw;" id="some">
+                   Griselle Quiñones 
+                  </p>
+                  <span class="comboBox__hideWhenActive">
+                    <ul class="rhythmMarginSmall">
+                      <li class="quote__skill quote__skill--match" onclick="document.querySelector(#av).click;">Licensed Massage Therapist 
+                    <span class="comboBox__hideWhenActive">
+                      <span class="divider" aria-hidden="true" role="presentation"> | </span> Yung Boss Bish
+                      <span class="divider" aria-hidden="true" role="presentation"> | </span> 
+                      
+                        <i data-icon="🔥" aria-hidden="true" role="icon"></i> GQMoney Gang Shiyt
+                      
+                    </span></li>
+                    <!--  <li class="quote__skill">Content Editing</li>
+                      <li class="quote__skill">Online Writing</li> -->
+                    </ul>
+                  </span>
+                </div>
+
+              <!--  <div class="quote__date">Sent 3/25</div> -->
+               
+                <div class="quote__price comboBox__hideWhenActive">
+                    <strong class="quote__price__amount">$99 a minute bish</strong>
+                    <!-- <span class="lightGrey quote__price__type">Fixed Price</span> -->
+
+                </div>
+                
+
+
+              <div class="quote__action comboBox__hideWhenActive">
+
+                  <div class="rhythmMargin1 clearfix">
+                    <!-- <button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Favorite">
+                      <i class="largerText" data-icon="&#xe033" aria-hidden="true" data-star></i><br>
+                      <span class="lightGrey">Favorite</span>
+                    </button>
+                    <button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Favorite">
+                      <i class="largerText" data-icon="&#xe01f" aria-hidden="true"></i><br>
+                      <span class="lightGrey">Message</span>
+                    </button> 
+                    <button class="module_btn white_btn small_btn pull-left" style="width:33%; padding: 0; border:0; margin:0" title="Archive Quote">
+                      <i class="largerText lightGrey" data-icon="&#xe614" aria-hidden="true"></i><br> 
+                      <span class="lightGrey">Archive</span>
+                    </button>
+                  </div> -->
+
+                  <!-- <button class="module_btn primary_btn full-width small_btn"><a href='#'>View Profile</a></button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </li>
+      </ul>
+
+      
+
+      <div class="comboBox__activePanel">
+        <div class="comboBox__activePanel__header clearfix">
+          <div class="pull-left">
+            <button type="button" id="closeQuote" class="module_btn secondary_btn" style="margin-left: 44vw;margin-top: 9vw; ">
+               <span class="navigation_arrow navigation_arrow_small"></span>
+               Close 
+            </button>
+          </div>
+          <div class="pull-right">
+            
+          </div>
+        </div>
+        <div class="comboBox__activePanel__content">
+          <div class="module_box module_box--white rhythmMargin1">
+            <div class="module_avatar module_avatar--flex rhythmMargin1">
+              <div class="avatar"><img data-activeimage /></div>
+              <div class="avatarinfo" data-info></div>
+            </div>
+            <div class="profile" id="profile">
+              <h4 class="strongHeading">
+                Always make strides with ground-breaking skills and knowledge.
+              </h4>
+              <h3 class="editable" style="font-size: 3vh;">Hi, I'm Griselle Q. I'm stunning with the looks and my eyes will make the men do whatever I desire. My dancing skills are up to par, but my milkshake is for me, so keep it in your own yard. I used to have lovehandles, but now I have a handle on Love. 💙</h3>
+              
+              <p class="copy">
+                Inner G is a leading provider of BCST and holistic healing solutions and services for not just  your aches and pains, but your overall long-term health & lifestyle. 
+                Our patients rely on us to continually innovate, we are proud of providing them with excellent products and highly qualified therapists and acupunturistas from the vistas. 
+              </p>
+              
+              <p class="copy">
+                Our mission is pretty simple: ensure that your long term wellness is 
+                both absolutely centered and on a plan for recovery, making you feel totally confident.
+              </p>
+              
+              <h4 class="strongHeading">Work Terms</h4>
+              <p class="copy">
+                Our regular business hours are from 9 AM to 5 PM (CST), 
+                but we are a customer-oriented company and are willing to work according to the Customer's schedule when we can. 
+              </p>
+              <p class="copy">
+                We are ready to both hourly payment and/or payment plans. 
+                We accept all major credit card companies and paypal payments.
+              </p>
+              
+            </div>
+            <div style="text-align:center">
+              <button id="expandProfile" class="module_btn link_btn text" style="height:7vh;width: 100%;background-color: #07f;color: #fff;">View Griselle's Bio</button>
+            </div>
+
+            
+          </div>
+          <div class="module_box module_box--white rhythmMargin1">
+            <h5 class="editable" style="font-size: 2vh;padding-top: 2vh;padding-bottom: 23vh;">quick snippet about myself here placeholder for banana split that the monkey made with forks and knifes.</h5>
+            <br />
+           
+      
+
+            <br /><br /><br /><br /><br /><br /><br />
+         <br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+<!--             <br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+           <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br> -->
+           
+
+<!-- ###add map -->
+<!---->
+          </div>
+        </div>
+        <div class="comboBox__activePanel__message">
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+ <div class="row faq vert-offset-4" style="background-color: #f1f5fa;padding: 15px 21px 15px 21px;margin-top: 50vh; ">
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="ta-c">FAQ</h2>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_0">
+                <i class="fa fa-caret-down"></i>
+                What is the cost of an online course?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_0" class="panel-collapse collapse">
+            <div class="panel-body">
+              MongoDB University courses are free.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_1">
+                <i class="fa fa-caret-down"></i>
+                What do I need to take a course?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_1" class="panel-collapse collapse">
+            <div class="panel-body">
+              You will need access to a computer and YouTube. A recent Windows, macOS, or
+Linux based machine will work fine.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_2">
+                <i class="fa fa-caret-down"></i>
+                Do I need to be available during a certain hour of the day to watch course videos?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_2" class="panel-collapse collapse">
+            <div class="panel-body">
+              No. The course is self-paced and will be broken down into short
+pre-recorded video segments with periodic assessments to check on
+your progress.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_3">
+                <i class="fa fa-caret-down"></i>
+                What do I receive for taking this course?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_3" class="panel-collapse collapse">
+            <div class="panel-body">
+              You will receive a final grade but the grade won't be on your
+course completion confirmation. To receive a certificate of completion,
+you will need to achieve 65% on graded material. There are three
+different types of assessments within the course: quizzes, labs and
+final exam. Quizzes don't count toward your grade but will help you
+check your understanding. The labs will comprise one half of your
+grade and the final exam/project one half of your grade. Unfortunately,
+due to a large number of students and in the interest of fairness,
+late assignments cannot be accepted.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_4">
+                <i class="fa fa-caret-down"></i>
+                Will I be able to get help?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_4" class="panel-collapse collapse">
+            <div class="panel-body">
+              Each course has an active online forum where students can help
+each other. In addition, the instructor(s), teaching assistants and
+other MongoDB employees will monitor the forums and try to help.
+Often the fastest answer comes from another student.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_5">
+                <i class="fa fa-caret-down"></i>
+                Do I need to pay to use MongoDB Enterprise for this course?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_5" class="panel-collapse collapse" style="display: 1;">
+            <div class="panel-body" style="display: 1; ">
+              Not at all! MongoDB Enterprise suite is free for evaluation
+purposes. So no need to worry about licenses.
+            </div>
+          </div>
+        </div>
+         <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_6">
+                <i class="fa fa-caret-down"></i>
+                Will I be able to get help?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_6" class="panel-collapse collapse">
+            <div class="panel-body">
+              Each course has an active online forum where students can help
+each other. In addition, the instructor(s), teaching assistants and
+other MongoDB employees will monitor the forums and try to help.
+Often the fastest answer comes from another student.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_7">
+                <i class="fa fa-caret-down"></i>
+                Will I be able to get help?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_7" class="panel-collapse collapse">
+            <div class="panel-body">
+              Each course has an active online forum where students can help
+each other. In addition, the instructor(s), teaching assistants and
+other MongoDB employees will monitor the forums and try to help.
+Often the fastest answer comes from another student.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" href="#faq_8">
+                <i class="fa fa-caret-down"></i>
+                Will I be able to get help?
+              </a>
+            </h4>
+          </div>
+          <div id="faq_8" class="panel-collapse collapse">
+            <div class="panel-body">
+              Each course has an active online forum where students can help
+each other. In addition, the instructor(s), teaching assistants and
+other MongoDB employees will monitor the forums and try to help.
+Often the fastest answer comes from another student.
+            </div>
+          </div>
+        </div>
+      </div> <!-- panel group -->
+    </div> <!-- col -->
+  </div> <!-- row -->
+</div> <!-- <div id="main" class="container" role="main"> -->
+
+
+  <div class="call-to-action-panel ta-c">
+      <h2>
+        Enroll today and learn to build with MongoDB.
+      </h2>
+      <button class="btn btn-action btn-large about-btn " data-toggle="modal" data-target="#login-modal">Register</button>
+    </div>
+
+
+
+
+
+
+
+
+<!-- ### Scheduling fulslate? -->
+
+  <section class="newCl" style="margin-top: 67%;">
+    
+
+  </section> 
+<!--/ ### end full slate -->
+
+    <div>
+
+                <h1 class="box editable">Learn More About Inner G</h1>
+
+            </div>
+
+
+
+            <div>
+
+
+
+
+                <a href="###" class="btn btn-action">Join for Free</a>
+
+            </div>
+
+        
+
+        <section class="featured-items fl-col-m">
+            <div class="featured-item--main fullwidth-m">
+                <a href="" class="card" target="_blank" data-video-player="">
+                    <div class="card-img ">
+                        <img class="card-img" src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fsavannahfamilychiropractor.com%2Fwp-content%2Fuploads%2F2016%2F03%2FChiropractor-Banner-5-1.jpg&f=1" alt="featured content" />
+                    </div>
+                 
+                    <div class="media-body">
+                        <h5 class="epsilon editable">Course:</h5>
+                        <p class="editable">M001: MongoDB Basics</p>
+                        <p class="subtle-text editable">
+                            <em class="editable">Jumpstart your learning with this course</em>
+                        </p>
+                    </div>
+                </a>
+              
+        
+            </div>
+        </section>
+
+<section class="box" style="display: grid;width:100%;background-color: #ddd;height: 500px; margin: auto;">
+  
+  <div class="div1" style="grid-area: 1fr;background-color: transparent;">
+    <h3>
+
+What are you waiting for?
+
+      
+    </h3>
+    <p>
+      Inner G: Restorative & Holistic Care, inc <br>  Make an appointment today to find out more! 
+    </p>
+  </div>
+
+  <div class="div2" style="grid-area: 1fr;background-color: transparent;">
+    
+  </div>
+</section>
+
+
+
+          <section class="box special features" style="margin-top: 40vh;">
+            <h2 style="text-align: center;margin-top: -5vh;">Services Provided &amp; Rates</h2>
+            <div class="features-row">
+
+              <section>
+                
+                <span class="icon major fa-money accent2"></span>
+                <h3 style="font-weight: bold;">First Time Treatment</h3>
+                  <p style="padding: 5px 7px 5px 7px;text-align: left;  ">
+                    <span style="width: 1em;display: inline-block;"> &nbsp; </span>Includes a full evaluation of your holistic needs
+                    Fill out an intake form; Discuss your treatment plan; Assess treatment goals. First treatment adds an additional 30 minutes to ensure enough time to discuss other services and options that are available including exercises, aromatherapy and craniosacral.
+                
+                  </p>
+
+                  <h4 style="font-weight: bold;">What to Expect during Your First Visit</h4>
+
+                  <p>Your first massage treatment will take about 90-120 minutes depending on massage duration chosen. It is advised to come showered and dressed in loose fit clothing. Please arrive a couple minutes before session start time to allow yourself to settle and use the restroom if necessary. Before your treatment begins, we will discuss your intake form, perform a few diagnostic tests and discuss your treatment plan. At the end of the session, we will discuss any recommendations suitable for your personal wellness. </p>
+
+                  <b style="text-align: center !important;margin:auto;">(30-minute consultation + 60-minute treatment): $90</b>
+                    <br />
+                    <b style="text-align: center;margin:auto; ">(30-minute consultation + 90-minute treatment): $140</b>
+
+              </section>
+              <section>
+                <span class="icon major fa-area-chart accent3"></span>
+                <h3 class="editable">
+                  Therapeutic Treatment
+                </h3>
+                <p class="editable" style="padding: 5px 7px 5px 7px;text-align: left;">
+                  Combination of deep tissue, acupressure, stretching and ART (active release technique) to focus on relieving tight musculature, chronic pain, and injury. Techniques may range from subtle to intense sensations depending on ailment. Each treatment will aim to release and relax tissue addressing overused musculature, prolonged tension and/or acute and continuous pain.
+                </p>
+              </section>
+            </div>
+            <div class="features-row">
+              <section>
+                <span class="icon major fa-cloud accent4"></span>
+                <h3 class="editable">
+                  Relaxation Treatment
+                </h3>
+                <p class="editable" style="padding: 5px 7px 5px 7px;text-align: left;">
+                  Restorative treatment that combines acupressure, nourishing holds, and soothing strokes to relax the body, ease the mind and rejuvenate the soul. Treatment includes a choice of aromatherapy and choice of music for a personalized experience.
+                </p>
+              </section>
+              <section>
+                <span class="icon major fa-lock accent5"></span>
+                <h3 class="editable">
+                  Massage Cupping (add on) &nbsp;$5
+                </h3>
+                <p class="editable" style="padding: 5px 7px 5px 7px;text-align: left;">
+                  Suction cupping additional to treatment that helps remove stagnation, loosen adhesions and knotted connective tissue by stimulating circulation and blood flow. Cups can be placed on back, glutes, legs, chest and/or shoulders while massaging or stretching other areas. Cups may be used throughout duration of session being placed in different areas or up to 10 minutes on a concentrated area.
+                </p>
+              </section>
+            </div>
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="content">
+  <h1 class="heading editable" style="padding-top: 2.3vh;">FAQ <span style='font-size: 0.67em;'> (frequently asked questions)</span></h1>
+  <p class="description editable">Hover over a card to flip it.</p><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1512552288940-3a300922a275?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd5d44720f9dc56de4e8c7e48a4c7fe0&auto=format&fit=crop&w=1051&q=80?300x401);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">
+          answer : There are a multitude of benefits on receiving a massage treatment. At Inner G, our objective is to make bodywork part of your wellness plan and not just a luxury.
+        </p>
+        <p class="editable">
+          [LINK TO MY FIRST POST/ARTICLE ON THE BENEFITS OF MASSAGE]
+        </p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1422205512921-12dac7b3b603?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7da8fa84d0abe96fb856234f01095e8b&auto=format&fit=crop&w=1055&q=80https://images.unsplash.com/photo-1422205512921-12dac7b3b603?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7da8fa84d0abe96fb856234f01095e8b&auto=format&fit=crop&w=1055&q=80?300x402);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">
+          answer : During your massage, you are free to undress to your comfort level. It is advisable to bring a pair of loose shorts or comfortable underwear since stretching may be involved.
+        </p>
+        <p class="editable">
+          If you would feel comfortable with a strapless bra for upper chest work, please bring one that is comfortable.
+        </p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1475694867812-f82b8696d610?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e21d678970fa15a14d35ec9ce1507eb1&auto=format&fit=crop&w=1489&q=80?300x403);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">
+          answer : All bodies are made differently. Some are able to withstand deep pressure at all costs. It is important to understand that the body needs to be warmed up and welcomed before deep pressure can be applied.
+        </p>
+        <p class="editable">
+          Sometimes, deep pressure is not recommended as the tissues do not loosen easily and stay tense, causing a conflict in the treatment plan.
+        </p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1496096113680-63bcf8182576?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a94574dcc7ff009ec2a4b77a56ce947e&auto=format&fit=crop&w=1489&q=80?300x404);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">
+          answer : Yes! It is recommended to provide your input during your treatment. At the end of the day, you know and understand your body better than the therapist.
+        </p>
+        <p class="editable">
+          Your body holds all your experiences and sometimes past history may come up during the treatment.
+        </p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1429277005502-eed8e872fe52?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=40ff27b2b19a3d91e339e5404b466533&auto=format&fit=crop&w=1050&q=80?300x405);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">
+          answer : Currently, there is a 12-hour cancellation policy. If you need to cancel your appointment, you can do so through the portal. Clients who cancel with less than 12 hours&rsquo; notice will be charged a $15 cancellation fee.
+        </p>
+        <p class="editable">
+          Clients who do not show up for an appointment and do not call to cancel will be charged $35.
+        </p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a><a class="card" href="#!">
+    <div class="front" style="background-image: url(https://images.unsplash.com/photo-1422393682802-921122338109?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=851e513603761cd62ef44526701ca700&auto=format&fit=crop&w=1050&q=80?300x406);">
+      <p class="editable">This isa fine placeholder for faq question type</p>
+    </div>
+    <div class="back">
+      <div>
+        <p class="editable">answer : This is a fine placeholder for faq type</p>
+        <p class="editable">explain more : This is a fine placeholder for faq type. sally awkwardly sold old seashells outside smelly offfputting seashores</p>
+        <button class="button">Click Here</button>
+      </div>
+    </div></a>
+</div>
+
+
+
+
+
+          <div class="row">
+            <div class="col-6 col-12-narrower">
+
+              <section class="box special">
+                <span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+                <h3 class="editable">I love gummi bears</h3>
+                <p class="editable">Oat cake jelly tart. Fruitcake lollipop gingerbread candy. Tart gummies toffee sweet gummi bears topping. Muffin candy candy. </p>
+                <ul class="actions special">
+                  <li><a href="#" class="button alt">Learn More</a></li>
+                </ul>
+              </section>
+
+            </div>
+            <div class="col-6 col-12-narrower">
+
+              <section class="box special">
+                <span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+                <h3 class="editable">Lollipop cake sesame snaps</h3>
+                <p class="editable">Cheesecake donut chocolate bar. Caramels cheesecake liquorice danish cake. Icing carrot cake bear claw sugar plum sweet toffee sugar plum jelly-o dessert. </p>
+                <ul class="actions special">
+                  <li><a href="#" class="button alt">Learn More</a></li>
+                </ul>
+              </section>
+
+            </div>
+          </div>
+
+        
+
+      <!-- CTA -->
+        <section id="cta">
+
+          <h2 class="editable">Receive a Free Consultation!</h2>
+          <p class="editable" style="padding: 5px 7px 5px 7px;margin-top: -1vh">Want to know if we are the right fit for you? We are happy to accommodate your schedule! We typically respond within 24hrs via email.</p>
+
+          <form>
+            <div class="row gtr-50 gtr-uniform">
+              <div class="col-8 col-12-mobilep">
+                <input type="email" name="email" id="email" placeholder="Email Address" />
+              </div>
+              <div class="col-4 col-12-mobilep">
+                <input type="submit" value="Sign Up" class="fit" />
+              </div>
+            </div>
+          </form>
+
+        </section>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+          <!--  <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+            <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
+          </ul>
+          <ul class="copyright">
+            <li>&copy; Inner G.  All rights reserved.</li><li>Design: <a href="logidesigns.com">LogiSolutions</a></li>
+          </ul>
+        </footer>
+
+    
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/jquery.scrollex.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+
+
+<script src="https://www.guru.com/js/components.min.js"></script>
+
+      <script>var quotes = document.querySelector('#quotes');
+var quote = quotes.querySelector('li');
+var quoteLink = quotes.querySelectorAll('a');
+var comboBox = document.querySelector('.comboBox');
+var closeLink = document.querySelector('#closeQuote');
+var expandProfile = document.querySelector('#expandProfile');
+var profile = document.querySelector('#profile');
+var scrollTop;
+var html = document.documentElement;
+var names = ['', '' ]
+var images=["", ""]
+
+function init() {
+  addEventListeners();
+  populate();
+  
+  if (window.innerWidth >= 700) {
+      document.documentElement.classList.add('twoColSize')
+  }
+  
+}
+init();
+
+function addEventListeners() {
+  quotes.addEventListener('click', quoteClickHandler);
+  document.addEventListener('keyup', function(e) {
+    if (e.keyCode === 27) {
+      closeClickHandler(e)
+    }
+  });
+  closeLink.addEventListener('click', closeClickHandler);
+  expandProfile.addEventListener('click', profileViewHandler);
+}
+
+function quoteClickHandler(e) {
+  scrollTop = html.scrollTop;
+  e.preventDefault();
+  var isComboBoxAlreadyOpen = false;
+  if (comboBox.classList.contains("comboBox--active")) {
+    isComboBoxAlreadyOpen = true;
+  }
+  
+  var el = e.target;
+  // walk up the tree until we find a LI item
+  while (el && el.tagName !== 'A') {
+     el = el.parentNode;
+  }
+  if (el && el.tagName === 'A') {
+    //activate comboBox
+    comboBox.classList.add("comboBox--active");   
+    
+    //let html element know its active  
+    html.classList.add("comboBox--open");
+        
+    // reset the active panel to top
+    comboBox.querySelector('.comboBox__activePanel__content').scrollTop = 0;
+    
+    // jank remove all left side active classes
+    quotes.querySelectorAll("li").forEach(function(record) {
+      record.classList.remove("comboBox__item--active");
+    })
+    while (el && el.tagName !== 'LI') {
+     el = el.parentNode;
+    }
+    el.classList.add("comboBox__item--active");
+    // end jank
+
+    //try to put the element they clicked in view
+    if (isComboBoxAlreadyOpen === false) {
+      quotes.scrollTop = el.offsetTop - (el.offsetHeight / 2) + 10;
+    }
+    
+    // setup the quote
+    populateActiveQuote(el);
+  }
+}
+
+function closeClickHandler(e) {
+  e.preventDefault();
+  html.classList.remove("comboBox--open");
+  comboBox.classList.remove("comboBox--active");
+  window.scrollTo(0, scrollTop)
+}
+
+function populate() {
+  var quotes =  $("#quotes");
+  for (var i = 0; i < 0; i++) {
+    quotes.append("<li class='comboBox__item'>"+quote.innerHTML+"</li>")
+    quotes.find("li .quote__identity a strong").last().html(names[i]);
+    quotes.find("li .avatar img").last().attr('src', images[i]);
+    
+    
+    
+    if (Math.floor((Math.random()*10) + 1) % 4 === 0) { 
+      quotes.find("[data-messages]").last()
+        .addClass('alert-color')
+        .removeClass('lightGrey')
+      
+      quotes.find("[data-star]").last()
+        .css('color', '#ffd76e')
+      
+    }
+    quotes.find("[data-count]").last()
+      .html(Math.floor((Math.random()*10)))
+  } 
+}
+
+function populateActiveQuote(clickedNode) {
+  var clickedSrc = clickedNode.querySelector(".avatar img").src;
+  var clickedInfo = clickedNode.querySelector("[data-info]");
+  var activePanel = comboBox.querySelector('.comboBox__activePanel__content');
+  
+  activePanel.querySelector('[data-activeImage]').src = clickedSrc;
+  activePanel.querySelector('[data-info]').innerHTML = clickedInfo.innerHTML;
+  
+  activePanel.querySelectorAll('.comboBox__hideWhenActive').forEach(function(node) {
+    node.classList.remove('comboBox__hideWhenActive');
+  });
+  
+  activePanel.querySelector('[data-messages]').remove()
+  activePanel.querySelector('.quote__date').remove()
+  activePanel.querySelector('.quote__action').remove()
+  $(profile).hide();
+}
+
+function profileViewHandler() {
+  $(profile).slideToggle(200, 'swing', function(){
+    if ($(profile).is(":visible")) {
+      expandProfile.innerText  = 'Collapse Profile'
+    }
+    else {
+      expandProfile.innerText = "View Griselle's Bio"
+    } 
+  });
+}</script>
+
+<script>
+  $(document).ready(function() {
+$("#some").addClass("animated shake");
+$(".text").addClass("animated shake");
+});
+</script>
+  </body>
+</html>
