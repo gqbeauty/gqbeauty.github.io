@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/2d1c7583b1.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet" />
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css"> -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+ <!--  <link rel="stylesheet" href="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.css"> -->
+  <!-- Bootstrap and Font Awesome css -->
+
+  <title>The Third</title>
+
+  <style>
+
+
+.intro-section {
+  text-align: center;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-section {
+  --scroll-length: 1.5;
+  height: calc(var(--scroll-length) * 100vh);
+  width: 100%;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.content-section .content .subheading,
+.content-section .content .paragraph {
+  opacity: 1;
+  opacity: calc(1 + var(--viewport-y));
+}
+
+.figure {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.figure > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 35em;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  color: white;
+  padding: 2em;
+  font-size: 2.5vmin;
+}
+.content * {
+  text-shadow: 0 0 4vmin rgba(0, 0, 0, 0.25);
+}
+.content > .header {
+  grid-row: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.content > .paragraph {
+  grid-row: 2 / 3;
+  line-height: 1.5;
+}
+
+.heading {
+  font-size: 2.75em;
+  margin: 0;
+  margin-top: 50vh;
+  line-height: 7vh;
+}
+
+.subheading {
+  
+  padding-bottom: 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* ---------------------------------- */
+.figure {
+  --scale: calc(0.8 + (0.2 * var(--scroll-length) * var(--visible-y)));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-transform: scale(var(--scale));
+          transform: scale(var(--scale));
+}
+.figure:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: black;
+  opacity: calc(var(--visible-y));
+}
+.figure > img {
+  display: block;
+  will-change: transform;
+  -webkit-transform: scale(calc(1 / var(--scale)));
+          transform: scale(calc(1 / var(--scale)));
+}
+
+/* ---------------------------------- */
+.char {
+  display: inline-block;
+  opacity: calc(1 + ( (var(--viewport-y) * 1.5) - var(--char-percent)));
+}
+
+*,
+*:before,
+*:after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.heading,
+.intro-heading {
+  font-weight: 700;
+}
+
+body,
+html {
+  background-color: #1D1F20;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-family: 'Raleway', sans-serif;
+}
+
+p, .heading, .subheading, .content, .paragraph {
+  font-family: 'Raleway', sans-serif;
+
+
+
+}
+ .content {
+  font-size: 3vh;
+  word-spacing: 0.23rem;
+  
+  margin-top: -5%;
+  margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .content > .col {
+    margin-right: 0;
+  }
+}
+
+.paragraph {
+  margin-top: -32vh !important;
+  position: relative;
+}
+
+
+
+
+
+.masonry {
+  padding: 1.5rem 2.75rem;
+  -webkit-column-count: 1;
+          column-count: 1;
+  -webkit-column-gap: 0;
+          column-gap: 0;
+  counter-reset: item-counter;
+}
+@media screen and (min-width: 400px) {
+  .masonry {
+    -webkit-column-count: 2;
+            column-count: 2;
+  }
+}
+@media screen and (min-width: 600px) {
+  .masonry {
+    -webkit-column-count: 3;
+            column-count: 3;
+  }
+}
+@media screen and (min-width: 800px) {
+  .masonry {
+    -webkit-column-count: 4;
+            column-count: 4;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .masonry {
+    -webkit-column-count: 5;
+            column-count: 5;
+  }
+}
+
+.item {
+  box-sizing: border-box;
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid;
+  padding: 10px;
+  counter-increment: item-counter;
+}
+.item__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  font-size: 40px;
+  color: #360007;
+  background: currentColor;
+  box-sizing: border-box;
+  color: #720026;
+}
+.item__content:hover {
+  background: #9b0034;
+}
+.item__content:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 13px;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  text-align: center;
+  font-weight: bold;
+  background-color: #222;
+  content: counter(item-counter);
+}
+.item__content:after {
+  color: #1c0004;
+  content: 'III';
+}
+.item__content--small {
+  color: #CE4257;
+  height: 100px;
+}
+.item__content--small:hover {
+  background: #d66274;
+}
+.item__content--small:after {
+  content: 'III';
+}
+.item__content--medium {
+  color: #FFC093;
+  height: 175px;
+}
+.item__content--medium:hover {
+  background: #ffd8bc;
+}
+.item__content--medium:after {
+  content: 'III';
+}
+.item__content--large {
+  color: #FF7F51;
+  height: 280px;
+}
+.item__content--large:hover {
+  background: #ff9d7a;
+}
+.item__content--large:after {
+  content: 'III';
+}
+
+
+
+#navigation {
+  position: relative;
+  width: 100%;
+  height: 5%;
+  background: #1D1F20;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  text-align: center;
+ 
+  z-index: 99999999999;
+}
+#navigation ul {
+  padding: 5px 7px 5px 7px;
+  font-size: 2.5vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  list-style: none;
+
+}
+#navigation ul li a {
+  list-style: none;
+  text-decoration: none;
+  height: inherit;
+  padding: 0 25px;
+  display: inline-block;
+  transition: all 150ms ease;
+  line-height: inherit;
+  text-transform: uppercase;
+}
+#navigation ul li a:hover {
+  background: #00b6e3;
+  color: #fff;
+}
+#navigation.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+/* Cards */
+.posts-box {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 40px 10px;
+  text-align: center;
+  list-style: none;
+}
+
+.posts-box li {
+  display: inline-block;
+  width: 320px;
+  max-width: 100%;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.card {
+  text-align: left;
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.10),
+    0 1px 2px rgba(0,0,0,0.22);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card div {
+  padding: 16px 20px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.card div h3 {
+  margin: 8px 0;
+  font-size: .9em;
+}
+
+.card div p {
+  margin: 8px 0;
+  font-size: .9em;
+}
+
+.button {
+  color: #FFC107;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+}
+
+.button:hover {
+  opacity: .7;
+}
+
+/* Page */
+.modal,
+.modal-box {
+  z-index: 900;
+}
+
+.modal-sandbox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #FFB74D;
+  overflow: auto;
+}
+
+.modal-box {
+  position: relative;
+  width: 80%;
+  max-width: 920px;
+  margin: 100px auto;
+  background: #FFFFFF;
+  animation-name: modalbox;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
+.modal-header img {
+  width: 100%;
+}
+
+.modal-body {
+  padding: 60px 8%;
+}
+
+.modal-body h2 {
+  margin-bottom: 30px;
+  letter-spacing: .06em;
+}
+
+.modal-body p {
+  font-size: .9em;
+  line-height: 1.5em;
+}
+
+@-webkit-keyframes modalbox {
+  0% {
+    top: -250px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes modalbox {
+  0% {
+    top: -250px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+button {
+  min-width: 120px;
+  top: 50%;
+  left: 50%;
+  padding: 16px 32px;
+  margin: 24px 8px 0 0;
+  background: transparent;
+  text-decoration: none;
+  border: 1px solid #FFC107;
+  outline: none;
+  color: #FFC107;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: .4;
+  cursor: auto;
+}
+
+@media (max-width: 620px) {
+  button {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+</style>
+
+</head>
+<body>
+<nav id="navigation">
+  <ul>
+    <li style="display: none;"><a href="#"> </a></li>
+    <li><a href="#">Rick1</a></li>
+    <li><a href="#">rick2</a></li>
+    <li><a href="#">bookitnow</a></li>
+    <li style="display: none;"><a href="#"> </a></li>
+  </ul>
+</nav>
+<script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
+
+<section class="intro-section">
+  <h1 class="intro-heading" style="padding: 5px 7px 5px 7px;font-size: 14vh;color: #fff;">III Studios</h1>
+   <div class="oop" style="padding: 5px 7px 5px 7px;margin-top: -10px;">
+    <tr>
+                                  <td align="center" valign="middle" style="padding: 10px;">
+                                    <a href="https://www.instagram.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="instagram" src="https://d2axdqolvqmdvx.cloudfront.net/5792d5ba-8636-4cc2-ac2b-f3e0d59ff040/instagram.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://www.pinterest.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="pinterest" src="https://d2axdqolvqmdvx.cloudfront.net/110cd621-21bc-47b6-9e57-37059174ffde/pinterest.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://www.facebook.com/TheBlackTux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="facebook" src="https://d2axdqolvqmdvx.cloudfront.net/d66b3cc0-43f8-4d61-acb7-617a4bac53d7/facebook.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://twitter.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="twitter" src="https://d2axdqolvqmdvx.cloudfront.net/759d4c41-d18d-44be-b22b-2f8954c3c9b9/twitter.png"
+                                      width="61">
+                                    </a>
+                                  </td>
+                                </tr></div>
+
+  <p>The latest in audio-engineering technology.</p>
+</section>
+
+<!-- Photos via Unsplash Source https://source.unsplash.com/ -->
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2Fl2JeikcLCAHdLdUac%2Fgiphy.gif&f=1" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable" id='rocks' data-text='`${millyRock}`'> </div>
+      <h2 class="heading editable"><div class="cover"></div>
+<div class="content" style="max-height: 67%;line-height: 2rem;word-spacing: 1vw;letter-spacing: 0.67vh;transform: translateY(-20%);">
+  <div class="col" id="left">
+    <div class="panel" id="user">
+      <div class="header">Welcome to the <a class="action" href="#" style="color: #fff;">III Studios.com</a></div>
+      <div id="userImage"></div>
+      <div class="block">
+        <h2 style="color: #f90;">theiiistudios@gmail.com</h2><strong class="detail"></strong>
+        <div class="detail">
+         <!--  <div class="icon"><i class="fa fa-map-marker"></i></div> -->
+         <!--  <div><strong><a href="tel:555-555-5555">click here for directions</a></strong> <br/> Chicago, IL</div>
+        </div>
+        <div class="detail">
+          <div class="icon"><i class="fa fa-phone"></i></div>
+          <div>+1 (312) 555-5555</div>
+        </div> -->
+        <br />
+        <div class="detail">
+          <div class="icon"><i class="fa fa-envelope"></i></div>
+          <div> </div>
+        </div>
+        <div>Monday: tbd</div>
+        <div>Tuesday: tbd</div>
+        <div>Wednesday: tbd</div>
+        <div>Thursday: tbd</div>
+        <div>Friday: tbd</div>
+        <div>Saturday: tbd</div>
+        <div>Sunday: tbd</div>
+        <br />
+        <!-- <button class="" id="" style="font-size: 3.2vh;color: #000;border-radius:2rem;padding: 5px 7px 5px 7px;position: fixed;z-index: 99999;">Book Now</button> -->
+      </div>
+    </div></div></div></div></h2>
+    </header>
+ 
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2F68.media.tumblr.com%2F76463df57dd06a15c44ed7a07370c377%2Ftumblr_mphlsesIWr1riwziyo1_500.gif&f=1" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+        The Third Vibes<span class="word" data-word="either." style="--word-index:5;"><span class="char" data-char="." style="--char-index:28;"></span></span>
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      &nbsp; &nbsp; &nbsp;Based in the core of Chicago&rsquo;s music scene, we&rsquo;re more than just a recording studio. Our ivy covered building is a premier hotspot for a community of musicians who gather, collaborate and exchange ideas for musical creation and inspiration. Stop in and enjoy our comfortable couches, Wi-Fi-connected lounge, Apple TV and adjustable color LED lighting downstairs. Customized settings with looper pedals, chaos pads, and midi controllers galore (yes, you can jam licks while bathed in purple light, if that&rsquo;s your vibe).
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/31793557_10210961387446333_8396568030393401344_n.jpg?_nc_cat=109&oh=5f12ff638ac7939be221a37f8b5b9247&oe=5C610584" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+      The III Studios
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      is a full-service recording studio and production company in Chicago, Illinois, owned and operated by music production maven Ricky Havansek III.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/23473208_10209867906269987_8291949447443344999_n.jpg?_nc_cat=109&oh=7f401234ce6eeea05f2e97d245ef00d3&oe=5C436BC7" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+        We have<br />the tools,<br />resources &amp;<br />know-how<br />to grow<br />your catalog.<span class="word" data-word="either." style="--word-index:5;"><span class="char" data-char="." style="--char-index:28;"></span></span>
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      &nbsp; &nbsp; &nbsp;The III Studios is a premier audio &amp; video-optimized recording studio. A well maintained and cutting edge space for musicians who gather, collaborate and exchange ideas for musical inspiration. Our recording studio boast full production capabilities, including cutting-edge recording technology and a variety of instruments and outboard gear.&nbsp;
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-9/13495269_10206228020395115_2231550554034722053_n.jpg?_nc_cat=110&oh=8ba86b590b74794d8ce9307784e88177&oe=5C43B564" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+        Ricky Havansek III
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      &nbsp;A 10-year music industry veteran, Ricky Havansek III&nbsp; attributes his diehard obsession with music to his upbringing near the cultural melting pot of Chicago, Illinois. His passion for music was influenced by ????&mdash;leading him to earn a degree in Music Business. An active member of communities of local artists spreading good vibes and positive change. This includes a rapidly growing community of beat-boxers, guitarists, drummers, electro-funk and dubstep, and festival music alike. we offer serious musicians the tools, resources and know-how to grow their catalog. Contact us now.<br /><br /><br />&nbsp; &nbsp; &nbsp; &nbsp;CTA ( call to action )
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://images.unsplash.com/photo-1535406208535-1429839cfd13?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c69765ea64ad1e1cd7f4858fab0e6915&auto=format&fit=crop&w=1055&q=80?800x800" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable">
+        <p> </p>
+      </div>
+      <h2 class="heading editable">
+        Tracking, Mixing, Mastering &amp; more... Way more.
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      Welcome to your space to create, write, experiment, invent and collaborate. Whether you hang out for an hour or a whole day, our live rooms are comfortable and conducive to creativity. Plus, they&rsquo;re Wi-Fi connected and contain hi-def video capabilities: Bolster your fan following by live-streaming practice sessions, or previewing new albums.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://dl2.pushbulletusercontent.com/6EupddkH4ih01PVoHRSDxX1t32s2D1zL/Screen%20Shot%202018-10-11%20at%202.17.29%20AM.png" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable" >
+        Where We're Located.
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      A beautiful ivy-covered building with rich Chicago History and comfortably tucked into a nice clean and safe neighborhood with free parking in front. Email us.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://images.unsplash.com/photo-1504429630027-fa7eb53a1090?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cb201af75662b4cdfe2519974149d616&auto=format&fit=crop&w=1051&q=80" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+        Cutting Edge Technology &amp; Tools.
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      Specs- This is a place holder where sally sold seashells on the seashore and the quick brown fox jumped over the lazy dog through the forest over the woods and over the log.
+    </p>
+  </div>
+</section>
+
+<section class="content-section" data-scroll>
+  <figure class="figure"><img src="https://images.unsplash.com/photo-1471421298428-1513ab720a8e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9933e00c0c47296ec5b210cc9e484106&auto=format&fit=crop&w=400&q=60" /></figure>
+  <div class="content">
+    <header class="header">
+      <div class="subheading editable"> </div>
+      <h2 class="heading editable">
+        Add us on Social Media. Cheers!
+      </h2>
+    </header>
+    <p class="paragraph editable">
+      links list goes here placholder<br />-fb<br />-insta<br />-twitter
+    </p>
+  </div>
+</section>
+
+
+<!-- Thumbs -->
+  <ul class="posts-box">
+    <!-- JSON Here! -->
+  </ul>
+
+  <!-- Modal -->
+  <div class="modal" id="modal-name">
+    <div class="modal-sandbox"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <img src="" class="inner-img" alt="">
+      </div>
+      <div class="modal-body">
+        <h2 class="inner-title"></h2>
+        <div class="inner-text"></div>
+        <button class="prev-post">Previous</button>
+        <button class="next-post">Next</button>
+        <button class="close-post">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+<!--masonry -->
+<div class="masonry">
+  <div class="item">
+    <div class="item__content">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--medium">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--medium">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--large">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--medium">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--large">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--large">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--medium">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--medium">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content">
+    </div>
+  </div>
+  <div class="item">
+    <div class="item__content item__content--small">
+    </div>
+  </div>
+</div>
+
+<!--/end masonry -->
+
+
+  <div class="oop" style="padding: 5px 7px 5px 7px;margin-left: 25%;">
+    <tr>
+                                  <td align="center" valign="middle" style="padding: 10px;">
+                                    <a href="https://www.instagram.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="instagram" src="https://d2axdqolvqmdvx.cloudfront.net/5792d5ba-8636-4cc2-ac2b-f3e0d59ff040/instagram.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://www.pinterest.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="pinterest" src="https://d2axdqolvqmdvx.cloudfront.net/110cd621-21bc-47b6-9e57-37059174ffde/pinterest.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://www.facebook.com/TheBlackTux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="facebook" src="https://d2axdqolvqmdvx.cloudfront.net/d66b3cc0-43f8-4d61-acb7-617a4bac53d7/facebook.png"
+                                      width="61">
+                                    </a>
+                                    <a href="https://twitter.com/theblacktux/" style="display: inline-block; padding: 2px;">
+                                      <img alt="twitter" src="https://d2axdqolvqmdvx.cloudfront.net/759d4c41-d18d-44be-b22b-2f8954c3c9b9/twitter.png"
+                                      width="61">
+                                    </a>
+                                  </td>
+                                </tr></div>
+                              </tbody>
+                            </table>
+                            <table border="0" cellpadding="0" cellspacing="0" class="email-support" style="padding: 20px; background-color: #e4e4e4; width: 100%;">
+                              <tbody>
+                                <tr>
+                                  <td align="center" valign="middle">
+                                    <p style="margin: 8px; font-size: 17px;"><strong>Customer Care</strong>
+                                    </p>
+                                    <p style="margin: 8px; font-size: 17px;">
+                                      <a href="tel:1%20%28888%29%20717-1588" target="_blank" value="+18887171588" style="color: black; font-weight: normal; text-decoration: underline;">1 (888) 717-1588</a>•
+                                      <a href="mailto:support@theblacktux.com" target="_blank"
+                                      style="color: black; font-weight: normal; text-decoration: underline;">support@theblacktux.com</a>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table border="0" cellpadding="0" cellspacing="0" class="email-legal" style="padding: 20px; font-size: 13px; background-color: #f1f1f1; width: 100%;">
+                              <tbody>
+                                <tr>
+                                  <td align="center" valign="middle" style="padding: 4px;">
+                                    <p style="margin: 4px;">This email was sent to
+                                      <a href="mailto:" style="font-weight: normal; text-decoration: underline; color: black;"
+                                      target="_blank">hello@SmilesDavis.yeah</a>
+                                    </p>
+                                  </td>
+                                </tr>
+
+
+
+
+
+
+       <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> 
+       <script>var post=[
+  {
+    postTitle: "III Studios News Feed 1",
+    postAbstract: "aint it all crazy Logan?",
+    postContent: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, molestiae placeat, inventore eligendi qui deserunt asperiores error laboriosam libero blanditiis dignissimos eius molestias cumque necessitatibus est. <b>Quae velit ad cupiditate necessitatibus</b>, facere eum earum ut odio nostrum labore a explicabo quasi voluptates, consequatur obcaecati quos, quis fugiat veniam ea ipsam consequuntur illo!</p><p>Aperiam fugit nulla, praesentium doloremque harum laborum ipsam officia minima. Alias saepe cumque mollitia soluta totam facere, iusto ab officiis cum itaque! Sit sint earum sequi quae mollitia quibusdam adipisci facere explicabo libero nihil! Velit aliquam asperiores possimus eligendi dolore reprehenderit similique suscipit2.</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-quinon.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-quinon5.jpg",
+    postLink: "article-link1"
+  },
+  {
+    postTitle: "Sit amet consectetur",
+    postAbstract: "Ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptatum, aliquam quaerat!",
+    postContent: "<p>Porro, perferendis fugit nulla, praesentium doloremque harum laborum ipsam possimus. In, est optio fugiat itaque inventore suscipit voluptatem quam sit <b>voluptatibus nesciunt</b> quo, cum eius. Dolorem, animi, voluptas?</p><p>Necessitatibus esse tempore iure quasi molestias assumenda vitae, maxime corrupti aut blanditiis, odit facere ad tempora fugiat suscipit nulla consequatur, soluta. Dignissimos cupiditate assumenda voluptatum!</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-inaem.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-inaem2.jpg",
+    postLink: "article-link1"
+  },
+  {
+    postTitle: "Adipisicing elit beatae",
+    postAbstract: "Lorem ipsum dolor sit amet, odit nulla consectetur adipisicing elit. Fugit vero accusamus commodi ex?",
+    postContent: "<p>Repudiandae voluptatem autem ab maiores <b>quaerat dicta illum</b> deleniti alias iure esse ex temporibus asperiores assumenda beatae veniam sit, eligendi magni quas quod, qui expedita similique error nulla debitis. Debitis <b>nemo ipsam rem dignissimos</b>, dicta repellat nulla nesciunt! Recusandae dicta numquam repellat tempore in cum, expedita. Quidem veniam, eos harum cumque aspernatur labore est enim voluptatibus numquam at ea vel provident facere doloremque. Natus, officiis eos!</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-shigeru.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-shigeru4.jpg",
+    postLink: "article-link1"
+  },
+  {
+    postTitle: "Quidem neque commodi",
+    postAbstract: "Aliquid sapiente harum maiores alias optio, ea vero perferendis impedit architecto culpa libero corporis.",
+    postContent: "<p>Dolorum eos dignissimos eveniet deserunt veritatis possimus magnam enim, eaque non, architecto voluptates consequuntur nulla, modi nobis sunt perferendis voluptatibus accusantium voluptatem! Delectus iure architecto rem, ex quas necessitatibus illum autem obcaecati sapiente ea inventore quisquam debitis quae numquam. Iusto mollitia suscipit iste quae tempore ipsam facere <b>quia nobis et omnis accusantium quo</b>, quod tenetur, aperiam, rem quos quas eveniet exercitationem. Rem, hic optio. Harum quis porro optio facilis totam velit quibusdam corrupti saepe similique sed aut doloribus temporibus ipsum modi rerum, ab impedit.</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-karuna.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-karuna2.jpg",
+    postLink: "article-link1"
+  },
+  {
+    postTitle: "Explicabo obcaecati",
+    postAbstract: "Iste explicabo, architecto maiores nisi eaque doloribus aspernatur esse tera corporis iure itaque animi?",
+    postContent: "<p>Voluptatem, similique. Sed doloribus quaerat ratione deleniti esse odit doloremque incidunt, aut, recusandae? Ipsam ipsum voluptas tenetur aut atque tempora ducimus, dolores qui, <b>maiores voluptatibus veniam</b>, quos inventore esse illum adipisci. Error quo officia, distinctio voluptates, possimus voluptatem dignissimos magni dolor, nobis expedita doloribus consequuntur beatae natus iusto ipsum culpa. Delectus pariatur, officia voluptatem, dolore enim cum temporibus deserunt reiciendis at quam labore aperiam, adipisci nesciunt.</p><p>Laborum placeat <b>adipisci ex porro</b>, labore impedit sed nulla perferendis architecto quis vitae laudantium animi, dolorum repudiandae incidunt eaque! Possimus corporis voluptatum aut velit similique facilis fugit quis eaque, fugiat inventore beatae minus nemo soluta quia earum, atque accusamus!</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-vinallonga.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-vinallonga1.jpg",
+    postLink: "article-link1"
+  },
+  {
+    postTitle: "Ullam provident",
+    postAbstract: "Lorem ipsum dolor sit amet eveniet, consectetur adipisicing elit. Numquam repudiandae nam dolore.",
+    postContent: "<p>Possimus ipsam, aliquid voluptate ab quaerat mollitia deleniti recusandae, voluptas quisquam consequatur porro nesciunt sed commodi reprehenderit, amet earum sapiente sunt, temporibus aut <b>consectetur eligendi</b> laudantium. Cum, eius! Optio tempora unde, non quasi fugit, eos corporis iusto dolores, quam suscipit ipsum cum nesciunt incidunt atque in recusandae amet totam ea fuga! Aliquid similique exercitationem accusamus, et vitae molestiae voluptatum quo earum doloribus <b>nisi hic nesciunt</b>, blanditiis dignissimos. Quia veniam neque facere nesciunt quibusdam distinctio architecto perferendis veritatis? Laboriosam architecto culpa hic aspernatur ratione possimus nostrum mollitia, soluta aliquid reiciendis doloribus.</p>",
+    postThumb: "http://tobiasbogliolo.com/assets/imgs/cases/thumb-urban.jpg",
+    postImg: "http://tobiasbogliolo.com/assets/imgs/cases/case-urban4.jpg",
+    postLink: "article-link1"
+  }
+];
+
+
+/*
+=====================
+=====================
+Thumbs
+=====================
+=====================
+*/
+//Loop length:
+var postLength = post.length;
+//Empty container:
+$(".posts-box").empty();
+//Loop:
+for (i=0; i<postLength; i++) {
+  //Create thumb structure:
+  var listItem =
+    '<li>'+
+      '<div class="card">'+
+        '<a class="button" href="'+post[i].postLink+'" data-obj="'+i+'">'+
+          '<img src="'+post[i].postThumb+'" alt="">'+
+        '</a>'+
+        '<div>'+
+          '<h3>'+post[i].postTitle+'</h3>'+
+          '<p>'+post[i].postAbstract+'</p>'+
+        '</div>'+
+        '<div>'+
+          '<a class="button" href="'+post[i].postLink+'" data-obj="'+i+'">Explore</a>'+
+        '</div>'+
+      '</div>'+
+    '</li>';
+  //Append thumb:
+  $(".posts-box").append(listItem);
+};
+
+
+/*
+=====================
+=====================
+Inner post
+=====================
+=====================
+*/
+var thisElement = 0;
+
+function innerContent(content){
+  $(".inner-img").attr("src",post[content].postImg);
+  $(".inner-title").html(post[content].postTitle);
+  $(".inner-text").html(post[content].postContent);
+};
+
+//Open post:
+$(".button").click(function(e){
+  e.preventDefault();
+  thisElement = $(this).attr("data-obj");
+  innerContent(thisElement);
+  $(".modal").css({"display":"block"});
+  dissBtn();
+});
+
+//Close post:
+$(".close-post, .modal-sandbox").click(function(){
+  $(".modal").css({"display":"none"});
+});
+
+//Next post:
+$(".next-post").click(function(e){
+  e.preventDefault();
+  if (thisElement<postLength-1) {
+    thisElement = parseInt(thisElement) + 1;
+    innerContent(thisElement);
+    dissBtn();
+  };
+});
+
+//Prev post:
+$(".prev-post").click(function(e){
+  e.preventDefault();
+  if (thisElement>0) {
+    thisElement = parseInt(thisElement) - 1;
+    innerContent(thisElement);
+    dissBtn();
+  };
+});
+
+//Button disable:
+function dissBtn(){
+  $(".prev-post, .next-post").removeClass("disabled");
+  if (thisElement<=0){
+    $(".prev-post").addClass("disabled");
+  }
+  else if (thisElement>=postLength-1){
+    $(".next-post").addClass("disabled");
+  };
+};
+ </script>
+      
+<script src="https://unpkg.com/scroll-out@2.2.2/dist/scroll-out.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+ <script>console.clear();
+
+ScrollOut({
+  cssProps: {
+    visibleY: true,
+    viewportY: true
+  }
+});
+
+Splitting({ target: '.heading' });</script>
+
+<script>$(document).ready(function () {
+  var $nav = $('#navigation'),
+      posTop = $nav.position().top;
+  $(window).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > posTop) { $nav.addClass('fixed'); }
+    else { $nav.removeClass('fixed'); }
+  });
+});</script>
+</body>
+</html>
+
+
